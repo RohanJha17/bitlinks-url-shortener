@@ -47,7 +47,6 @@ It allows users to generate short URLs instantly and redirects them using dynami
 • Dynamic Routing (app/[shorturl]/page.js)
 
 ## 🔁 How URL Redirection Works
-```
 
 -> User generates a short URL (e.g. http://localhost:3000/abc123)
 
@@ -58,9 +57,6 @@ It allows users to generate short URLs instantly and redirects them using dynami
 -> Next.js dynamic route /[shorturl] fetches the original URL
 
 -> User is redirected automatically
-```
 
 ## 👨‍💻 Developer
-```
 Developed by: Rohan Jha
-```
