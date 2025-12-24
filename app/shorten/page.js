@@ -12,7 +12,10 @@ const Shorten = () => {
       const res = await fetch("/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url, shorturl }),
+        body: JSON.stringify({
+          url: url.trim(),
+          shorturl: shorturl.trim().toLowerCase(),
+        }),
       });
 
       const data = await res.json();

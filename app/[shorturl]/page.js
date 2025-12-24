@@ -5,7 +5,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export default async function Page({ params }) {
-  const { shorturl } = params;
+  const shorturl = params.shorturl.trim().toLowerCase();
 
   const client = await clientPromise;
   const db = client.db("bitlinks");

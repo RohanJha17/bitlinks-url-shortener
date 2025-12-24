@@ -6,6 +6,7 @@ export async function POST(request) {
     const client = await clientPromise;
     const db = client.db("bitlinks");
     const collection = db.collection("url");
+    const normalizedShortUrl = body.shorturl.trim().toLowerCase();
 
     if (!body.url || !body.shorturl) {
       return Response.json(
@@ -14,7 +15,7 @@ export async function POST(request) {
       );
     }
 
-    const doc = await collection.findOne({ shorturl: body.shorturl });
+    const doc = await collection.findOne({shorturl: normalizedShortUrl});
     if (doc) {
       return Response.json(
         { error: "Short URL already exists" },
@@ -22,16 +23,16 @@ export async function POST(request) {
       );
     }
 
-    await collection.insertOne({
-      url: body.url,
-      shorturl: body.shorturl,
-      createdAt: new Date(),
-    });
+   await collection.insertOne({
+    url: body.url.trim(),
+    shorturl: normalizedShortUrl,
+    createdAt: new Date(),
+  });
 
     return Response.json({
       success: true,
       message: "URL generated successfully",
-      shorturl: body.shorturl,
+      shorturl: normalizedShortUrl,
     });
   } catch (err) {
     console.error(err);
