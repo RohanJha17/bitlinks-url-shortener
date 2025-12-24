@@ -1,11 +1,11 @@
 import { redirect } from "next/navigation";
 import clientPromise from "@/lib/mongodb";
 
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-export const runtime = "nodejs";        
 
 export default async function Page({ params }) {
-  const { shorturl } = await params;
+  const { shorturl } = params;
 
   const client = await clientPromise;
   const db = client.db("bitlinks");
