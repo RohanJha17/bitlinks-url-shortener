@@ -14,7 +14,7 @@ const Navbar = () => {
             <Link href="/contact"><li>Contact Us</li></Link>
             <li className='flex gap-3'>
                 <Link href="/shorten"><button className='cursor-pointer bg-purple-500 shadow-lg rounded-lg px-3 py-1 text-[16px] font-semibold'>Try Now</button></Link>
-                <Link href="/github"><button className='cursor-pointer bg-purple-500 shadow-lg rounded-lg px-3 py-1 text-[16px] font-semibold'>GitHub</button></Link>
+                <Link href="/github" target='_blank' rel="noopener noreferrer"><button className='cursor-pointer bg-purple-500 shadow-lg rounded-lg px-3 py-1 text-[16px] font-semibold'>GitHub</button></Link>
             </li>
         </ul>
     </nav>

@@ -21,7 +21,7 @@ export default function Home() {
           </p>
           <div className="btns flex gap-3 justify-start items-center p-4 text-white">
                 <Link href="/shorten"><button className='cursor-pointer bg-purple-500 shadow-lg rounded-lg px-3 py-1 text-[16px] font-semibold'>Try Now</button></Link>
-                <Link href="/github"><button className='cursor-pointer bg-purple-500 shadow-lg rounded-lg px-3 py-1 text-[16px] font-semibold' target="_blank">GitHub</button></Link>
+                <Link href="/github" target="_blank" rel="noopener noreferrer"><button className='cursor-pointer bg-purple-500 shadow-lg rounded-lg px-3 py-1 text-[16px] font-semibold'>GitHub</button></Link>
           </div>
         </div>
         <div className="flex justify-start relative">
