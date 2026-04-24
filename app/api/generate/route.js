@@ -50,6 +50,7 @@ export async function POST(request) {
           shorturl
       })
     } catch (err) {
+      console.error("Database Error:", err);
       return Response.json({
         success: false,
         message: "Server Error"
