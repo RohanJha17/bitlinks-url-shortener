@@ -17,7 +17,7 @@ export default function Home() {
             The best URL shortener in the market
           </p>
           <p className="text-center px-24">
-            We are the most straightfoward URL Shortener in the world. Most of the url shorteners will track you or ask you to give your details for login. We understand your needs and hence we have created this URL shortener.
+            We are the most straightforward URL Shortener in the world. Most of the url shorteners will track you or ask you to give your details for login. We understand your needs and hence we have created this URL shortener.
           </p>
           <div className="btns flex gap-3 justify-start items-center p-4 text-white">
                 <Link href="/shorten"><button className='cursor-pointer bg-purple-500 shadow-lg rounded-lg px-3 py-1 text-[16px] font-semibold'>Try Now</button></Link>

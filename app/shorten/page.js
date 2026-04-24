@@ -1,13 +1,16 @@
 "use client"
 import Link from 'next/link'
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 
 const Shorten = () => {
     const [url, seturl] = useState("")
     const [shorturl, setshorturl] = useState("")
     const [generated, setGenerated] = useState("")
+    const [loading, setLoading] = useState(false)
 
     const generate = () => {
+        setLoading(true);
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -26,14 +29,21 @@ const Shorten = () => {
         fetch("/api/generate", requestOptions)
             .then((response) => response.json())
             .then((result) => {
-                setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${shorturl}`)
-                seturl("")   
-                setshorturl("")
+                if(result.success) {
+                    setGenerated(`${window.location.origin}/${result.shorturl || shorturl}`)
+                    seturl("")   
+                    setshorturl("")
+                    toast.success(result.message)
+                } else {
+                    toast.error(result.message)
+                }
                 console.log(result)
-                alert(result.message)
-            
             })
-            .catch((error) => console.error(error));
+            .catch((error) => {
+                console.error(error)
+                toast.error("An error occurred!")
+            })
+            .finally(() => setLoading(false));
     }
 
 
@@ -59,10 +69,11 @@ const Shorten = () => {
           />
 
           <button
+            disabled={loading}
             onClick={generate}
-            className="bg-purple-500 text-white rounded-md py-2 cursor-pointer font-semibold"
+            className="bg-purple-500 text-white rounded-md py-2 cursor-pointer font-semibold disabled:bg-purple-300"
           >
-            Generate
+            {loading ? "Generating..." : "Generate"}
           </button>
 
           {generated && (
