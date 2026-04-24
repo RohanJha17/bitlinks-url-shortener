@@ -79,9 +79,9 @@ const Shorten = () => {
           {generated && (
             <>
               <span className="font-bold text-lg">Your Link</span>
-              <Link href={generated} target="_blank" rel="noopener noreferrer" className="underline">
+              <a href={generated} target="_blank" rel="noopener noreferrer" className="underline">
                 {generated}
-              </Link>
+              </a>
             </>
           )}
         </div>
